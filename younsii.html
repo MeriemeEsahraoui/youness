@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surprise pour Youness ❤️</title>
+  <style>
+    /* Quelques styles généraux pour la mise en page */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #ffe6f0;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      color: crimson;
+      font-size: 3em;
+    }
+
+    .letter {
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      width: 100%;
+      font-size: 1.5em;
+      color: #333;
+      text-align: center;
+    }
+
+    /* Animation pour afficher le texte ligne par ligne */
+    .line {
+      opacity: 0;
+      animation: fadeIn 3s forwards;
+      margin: 10px 0;
+    }
+
+    .line:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .line:nth-child(2) {
+      animation-delay: 3s;
+    }
+
+    .line:nth-child(3) {
+      animation-delay: 6s;
+    }
+
+    .line:nth-child(4) {
+      animation-delay: 9s;
+    }
+
+    .line:nth-child(5) {
+      animation-delay: 12s;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Coeurs qui tombent */
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: fall 5s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        opacity: 1;
+      }
+      100% {
+        top: 100%;
+        opacity: 0;
+      }
+    }
+
+    /* Galerie */
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 40px;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>❤️ Pour Youness ❤️</h1>
+  <div class="letter">
+    <p class="line">Younesii, depuis que tu es dans ma vie, tout est devenu lumière.</p>
+    <p class="line">Tes sourires sont des soleils qui illuminent mes journées,</p>
+    <p class="line">ta voix est une mélodie qui berce mon cœur, et ta présence est la plus belle des douceurs.</p>
+    <p class="line">Merci d’exister, merci d’être là, tout simplement.</p>
+    <p class="line">Je t’aime plus que les mots ne peuvent le dire. 💖</p>
+  </div>
+  <div style="text-align:center; margin-top: 30px;">
+    <img src="https://media1.tenor.com/m/PmrJ43cFiWEAAAAC/kiss.gif" alt="Kiss" style="width: 150px; height: auto;">
+  </div>
+ 
+  <script>
+    // Unmute automatically after short delay
+    window.addEventListener('load', function() {
+      const music = document.getElementById('music');
+      setTimeout(() => {
+        music.muted = false;
+      }, 1000); // 1 seconde après le chargement
+    });
+  </script>
+  
+ 
+  <!-- Coeurs qui tombent -->
+  <div class="hearts" id="hearts"></div>
+
+  <script>
+    // Coeurs qui tombent
+    const heartsContainer = document.getElementById('hearts');
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }, 300);
+  </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Déclaration d'Amour</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8e1e1;
+      text-align: center;
+      padding: 40px;
+    }
+    
+    h1 {
+      color: #d5006b;
+      font-size: 36px;
+    }
+    
+    .note {
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+      background-color: #ff4081;
+      border-radius: 10px;
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+      color: white;
+      font-size: 20px;
+      padding: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .note:hover {
+      transform: scale(1.1);
+    }
+
+    .message {
+      display: none;
+      font-size: 18px;
+      margin-top: 20px;
+      background-color: #fff;
+      color: #333;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .note.open .message {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mes Messages pour Toi ❤️</h1>
+
+  <!-- Note 1 -->
+  <div class="note">
+    <p>Clique ici</p>
+    <div class="message">
+      <p>Tu es mon plus beau rêve devenu réalité. 💖</p>
+    </div>
+  </div>
+
+  <!-- Note 2 -->
+  <div class="note">
+    <p>Clique ici</p>
+    <div class="message">
+      <p>Chaque instant passé avec toi est un moment que je chéris profondément. 🌹</p>
+    </div>
+  </div>
+
+  <!-- Note 3 -->
+  <div class="note">
+    <p>Clique ici</p>
+    <div class="message">
+      <p>Mon cœur est à toi, pour toujours. 💌</p>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript pour ouvrir/fermer les messages
+    const notes = document.querySelectorAll('.note');
+
+    notes.forEach(note => {
+      note.addEventListener('click', () => {
+        note.classList.toggle('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surprise pour Youness ❤️</title>
+  <style>
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 40px;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align:center; color:#c2185b;">📸 Nos Souvenirs</h2>
+  <div class="gallery">
+    <!-- Images locales -->
+    <img src="images/souvenir1.jpg" alt="Souvenir 1">
+    <img src="images/souvenir2.jpg" alt="Souvenir 2">
+    <img src="images/souvenir3.jpg" alt="Souvenir 3">
+  </div>
+
+</body>
+</html>
